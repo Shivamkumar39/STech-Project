@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-parallax-tilt';
+
 const services = [
   { 
     title: 'Web Development', 
@@ -55,6 +56,15 @@ const Services = () => (
           </Tilt>
         </Link>
       ))}
+    </div>
+
+    {/* CTA Button */}
+    <div className="mt-16">
+      <Link to="/services">
+        <button className="bg-blue-600 hover:bg-teal-500 text-white px-6 py-3 rounded-full font-medium tracking-wide transition duration-300 shadow-md">
+          See All STech Services
+        </button>
+      </Link>
     </div>
   </section>
 );

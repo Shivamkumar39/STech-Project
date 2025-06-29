@@ -1,8 +1,8 @@
 import HeroSlider from '../components/Heroslider';
 import Services from '../sections/Services';
-import Projects from '../sections/Projects';
 import Reviews from '../sections/Reviews';
-import Contact from '../sections/Contact';
+import HomePlans from '../sections/HomePlane';
+
 
 const HomePage = () => {
   return (
@@ -11,9 +11,8 @@ const HomePage = () => {
 
       {/* Section Components */}
       <Services />
-      <Projects />
+      <HomePlans/>
       <Reviews />
-      <Contact />
     </div>
   );
 };

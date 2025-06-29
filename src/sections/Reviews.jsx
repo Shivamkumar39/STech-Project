@@ -13,33 +13,38 @@ const reviews = [
     text: "Professional, timely, and creative work. Will hire again.",
     name: "Jane Smith",
     role: "Marketing Head, Beta Ltd",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
   },
 ];
 
 const Reviews = () => (
-  <section id="reviews" className="py-16 bg-gradient-to-br from-indigo-50 to-purple-50 text-center">
-    <h2 className="text-4xl font-semibold mb-12 text-gray-800">Client Reviews</h2>
-    <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto px-6">
-      {reviews.map(({ id, text, name, role, avatar }) => (
-        <div
-          key={id}
-          className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
-        >
-          <p className="italic text-gray-700 text-lg leading-relaxed mb-6">“{text}”</p>
-          <div className="flex items-center justify-center space-x-4">
-            <img
-              src={avatar}
-              alt={name}
-              className="w-16 h-16 rounded-full object-cover border-2 border-indigo-400"
-              loading="lazy"
-            />
-            <div className="text-left">
-              <h4 className="text-lg font-bold text-gray-900">{name}</h4>
-              <p className="text-sm text-indigo-600">{role}</p>
+  <section id="reviews" className="py-16 bg-[#0a192f] text-white text-center">
+    <div className="max-w-5xl mx-auto px-6">
+      <h2 className="text-5xl font-extrabold text-blue-400 mb-12">Client Reviews</h2>
+
+      <div className="grid md:grid-cols-2 gap-10">
+        {reviews.map(({ id, text, name, role, avatar }) => (
+          <div
+            key={id}
+            className="bg-[#112240] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 cursor-pointer"
+          >
+            <p className="italic text-gray-300 text-lg leading-relaxed mb-6">“{text}”</p>
+
+            <div className="flex items-center justify-center gap-4">
+              <img
+                src={avatar}
+                alt={name}
+                className="w-14 h-14 rounded-full object-cover border-2 border-teal-400"
+                loading="lazy"
+              />
+              <div className="text-left">
+                <h4 className="text-lg font-bold text-white">{name}</h4>
+                <p className="text-sm text-teal-400">{role}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </section>
 );
