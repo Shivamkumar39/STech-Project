@@ -12,6 +12,8 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@material-tailwind/react": "^2.1.10",
+    "@sendgrid/mail": "^8.1.5",
+    "express": "^5.1.0",
     "lucide-react": "^0.525.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
