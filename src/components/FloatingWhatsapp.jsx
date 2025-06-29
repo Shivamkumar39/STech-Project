@@ -1,5 +1,5 @@
 import React from 'react';
-
+import logo from '../assets/whatsapp.png';
 const FloatingWhatsapp = () => (
   <a
     href="https://wa.me/9508353863"
@@ -7,7 +7,7 @@ const FloatingWhatsapp = () => (
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img src="/whatsapp.png" alt="WhatsApp" className="w-8 h-8" />
+    <img src={logo} alt="WhatsApp" className="w-8 h-8" />
   </a>
 );
 

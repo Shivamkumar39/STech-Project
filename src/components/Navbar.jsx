@@ -13,12 +13,15 @@ const Navbar = () => {
     <nav className="sticky top-0 left-0 w-full z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo & Branding */}
-        <div className="flex items-center space-x-3">
-          <img src={logo} alt="STech Logo" className="h-14 w-auto" />
+        <a href='/'>
+        <div className="flex items-center space-x-3" >
+         
+           <img src={logo} alt="STech Logo" className="h-14 w-auto" />
           <h1 className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-orange-400 to-teal-400">
             STech Services
           </h1>
         </div>
+         </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6 font-medium">

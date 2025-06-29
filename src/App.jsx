@@ -1,20 +1,28 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import WebDevelopment from './pages/webDevlopemntser';
+import Logodesignservices from './pages/Logodesignservices';
+import ResumeServices from './pages/ResumeServices';
+import Dataentry from './pages/Dataentry';
+import HomePage from './pages/Home';
+import FloatingWhatsapp from './components/FloatingWhatsapp';
+
 
 function App() {
   return (
     <Router>
-      <div className="font-sans">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-        <Footer />
-      </div>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<HomePage/>} />
+        <Route path="/services/web-development" element={<WebDevelopment />} />
+        <Route path="/services/logo-design" element={<Logodesignservices />} />
+        <Route path="/services/resume-writing" element={<ResumeServices />} />
+        <Route path="/services/data-entry" element={<Dataentry />} />
+      </Routes>
+
+      <FloatingWhatsapp/>
     </Router>
   );
 }
+
 export default App;
