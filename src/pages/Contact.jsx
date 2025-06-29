@@ -1,8 +1,16 @@
 import React, { useRef, useState } from 'react';
+import Alert from '@mui/material/Alert';
+import Slide from '@mui/material/Slide';
 
 const Contact = () => {
   const form = useRef();
   const [loading, setLoading] = useState(false);
+  const [alert, setAlert] = useState({ show: false, type: '', message: '' });
+
+  const showAlert = (type, message) => {
+    setAlert({ show: true, type, message });
+    setTimeout(() => setAlert({ show: false, type: '', message: '' }), 4000);
+  };
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -21,31 +29,36 @@ const Contact = () => {
     try {
       const res = await fetch('http://localhost:5000/send', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
 
       if (res.ok) {
-        alert('✅ Message sent successfully!');
+        showAlert('success', '✅ Message sent! We’ll contact you in 2–3 business days.');
         form.current.reset();
       } else {
-        alert('❌ Failed to send message.');
+        showAlert('error', '❌ Failed to send message. Please try again.');
       }
     } catch (err) {
-      console.error('Frontend error:', err);
-      alert('Something went wrong!');
+      showAlert('warning', '⚠️ Network error. Please try again later.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section
-      id="contact"
-      className="min-h-screen bg-[#0a192f] px-6 py-24 flex flex-col items-center justify-center text-white"
-    >
+    <section className="min-h-screen bg-[#0a192f] px-6 py-24 flex flex-col items-center justify-center text-white relative">
+      {/* Custom Toast Alert */}
+      {alert.show && (
+        <Slide direction="down" in={alert.show} mountOnEnter unmountOnExit>
+          <div className="fixed top-6 right-6 z-[9999] max-w-xs w-full">
+            <Alert severity={alert.type} variant="filled" className="shadow-lg">
+              {alert.message}
+            </Alert>
+          </div>
+        </Slide>
+      )}
+
       <div className="text-center mb-12">
         <h2 className="text-5xl font-bold text-white mb-4">Contact Us</h2>
         <p className="text-gray-400 max-w-xl mx-auto">
