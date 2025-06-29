@@ -10,9 +10,16 @@ import AllServices from './pages/AllServices';
 import Contact from './pages/Contact';
 import AllPlans from './pages/AllPlans';
 import Footer from './components/Footer';
+import { useEffect } from 'react';
 
 
 function App() {
+   useEffect(() => {
+    fetch('/api/service') // You can test with your API route
+      .then(res => res.json())
+      .then(data => console.log('API Response:', data))
+      .catch(err => console.error('API Error:', err));
+  }, []);
   return (
     <Router>
       <Navbar />
