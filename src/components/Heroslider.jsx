@@ -34,8 +34,6 @@ const SinglePage = () => {
         </div>
         </div>
       </section>
-
-      {/* Add other sections below */}
     </div>
   );
 };
